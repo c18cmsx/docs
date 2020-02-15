@@ -8,7 +8,11 @@ composer create-project --prefer-dist laravel/laravel <appname>
 Laravel autentikace (doporučuju vždy)
 ```
 
-php artisan make:auth
+composer require laravel/ui --dev
+
+php artisan ui vue --auth
+
+npm install && npm run dev
 ```
 .env
 - APP_NAME
@@ -19,13 +23,20 @@ config
 - app
     - timezone => Europe/Prague
     - locale => cz
-- database
-    - charset => utf8
-    - collation => utf8_unicode_ci
-    - engine => InnoDB
+    
+- do app/Providers/AppServiceProvider.php přidat:
+```
+use Illuminate\Support\Facades\Schema;
+...
+public function boot()
+{
+    Schema::defaultStringLength(191);
+}
+```
 
 ```
 php artisan migrate
+
 #php artisan migrate:fresh
 ```
 vyprázdnit
