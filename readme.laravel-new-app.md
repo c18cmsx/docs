@@ -69,7 +69,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 - odstranit soubor ```resources\views\home.blade.php```
 
-- do souboru ```resources\views\welcome.blade.php```změnit obsah
+- v souboru ```resources\views\welcome.blade.php```změnit obsah na:
 
 ```
 @extends('layouts.app')
