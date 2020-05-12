@@ -54,6 +54,21 @@ nainstalovat
 composer require barryvdh/laravel-debugbar --dev
 ```
 
+- routes\web.php
+
+přidat
+```
+Route::redirect('/home', '/');
+```
+odstranit
+```
+Route::get('/home', 'HomeController@index')->name('home');
+```
+
+- odstranit soubor ```app\Http\Controllers\HomeController.php```
+
+- odstranit soubor ```resources\views\home.blade.php```
+
 ## vývoj
 
 ### přidání less (/webpack.mix.js)
