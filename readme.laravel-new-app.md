@@ -1,6 +1,8 @@
 # Založení nové Laravel aplikace
 
-## Instalace Laravel
+## Instalace Laravel 7.x
+
+minimální verze PHP >= 7.2.5
 
 ```
 composer create-project --prefer-dist laravel/laravel <appname>
@@ -46,9 +48,6 @@ php artisan migrate
 
 #php artisan migrate:fresh
 ```
-vyprázdnit
-- public/css/app.css
-- public/js/app.css
 
 nainstalovat
 ```
@@ -56,6 +55,25 @@ composer require barryvdh/laravel-debugbar --dev
 ```
 
 ## vývoj
+
+### přidání less (/webpack.mix.js)
+
+```
+mix.js('resources/js/app.js', 'public/js')
+    .sass('resources/sass/app.scss', 'public/css/assets/app-scss.css')
+    .less('resources/less/app.less', 'public/css/assets/app-less.css')
+    .sourceMaps(true, 'source-map')
+    .combine([
+        'public/css/assets/app-scss.css',
+        'public/css/assets/app-less.css'
+    ], 'public/css/app.css')
+    .version();
+```
+
+``` 
+asset('...') => mix('...')
+```
+
 ```
 npm run watch
 ```
@@ -68,6 +86,14 @@ git clone <repozitář>
 
 ```
 composer install --no-dev
+```
+
+```
+php -r "file_exists('.env') || copy('.env.example', '.env');
+```
+
+```
+php artisan key:generate --ansi
 ```
 
 nastavit .env
