@@ -5,10 +5,17 @@
 ```
 composer create-project --prefer-dist laravel/laravel <appname>
 ```
+
+```
+git init
+git add .
+git commit -m "initial commit"
+```
+
 Laravel autentikace (doporučuju vždy)
 ```
 
-composer require laravel/ui --dev
+composer require laravel/ui
 
 php artisan ui vue --auth
 
@@ -46,6 +53,11 @@ vyprázdnit
 nainstalovat
 ```
 composer require barryvdh/laravel-debugbar --dev
+```
+
+## vývoj
+```
+npm run watch
 ```
 
 ## první nasazení
