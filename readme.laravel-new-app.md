@@ -101,6 +101,39 @@ asset('...') => mix('...')
 npm run watch
 ```
 
+### přidání fontawesome.com
+
+- do app/Providers/AppServiceProvider.php do funkce boot() přidat:
+
+```
+composer require components/font-awesome
+```
+
+```
+$this->publishes([
+    __DIR__ . '/../../vendor/components/font-awesome/css' => public_path('vendor/components/font-awesome/css'),
+    __DIR__ . '/../../vendor/components/font-awesome/webfonts' => public_path('vendor/components/font-awesome/webfonts')
+], 'public');
+```
+
+```
+php artisan vendor:publish --tag=public --force
+```
+
+- do composer.json přidat do `scripts`
+
+```
+"post-install-cmd": [
+    "php artisan vendor:publish --tag=public --force"
+],
+"post-update-cmd": [
+    "php artisan vendor:publish --tag=public --force"
+]
+```
+
+```
+<link href="<?= asset('vendor/components/font-awesome/css/all.min.css') ?>" rel="stylesheet">
+```
 ## první nasazení
 
 ```
