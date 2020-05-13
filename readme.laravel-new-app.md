@@ -111,9 +111,13 @@ composer require components/font-awesome
 
 ```
 $this->publishes([
-    __DIR__ . '/../../vendor/components/font-awesome/css' => public_path('vendor/components/font-awesome/css'),
-    __DIR__ . '/../../vendor/components/font-awesome/webfonts' => public_path('vendor/components/font-awesome/webfonts')
+    __DIR__ . '/../../vendor/components/font-awesome/webfonts' => public_path('webfonts')
 ], 'public');
+```
+
+- do webpack.mix.js přidat do .combine
+```
+'vendor/components/font-awesome/css/all.css'
 ```
 
 ```
@@ -131,9 +135,6 @@ php artisan vendor:publish --tag=public --force
 ]
 ```
 
-```
-<link href="{{ asset('vendor/components/font-awesome/css/all.min.css') }}" rel="stylesheet">
-```
 ## první nasazení
 
 ```
