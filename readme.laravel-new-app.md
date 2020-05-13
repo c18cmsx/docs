@@ -103,16 +103,8 @@ npm run watch
 
 ### přidání fontawesome.com
 
-- do app/Providers/AppServiceProvider.php do funkce boot() přidat:
-
 ```
 composer require components/font-awesome
-```
-
-```
-$this->publishes([
-    __DIR__ . '/../../vendor/components/font-awesome/webfonts' => public_path('webfonts')
-], 'public');
 ```
 
 - do webpack.mix.js přidat do .combine
@@ -120,19 +112,9 @@ $this->publishes([
 'vendor/components/font-awesome/css/all.css'
 ```
 
+- do webpack.mix.js přidat
 ```
-php artisan vendor:publish --tag=public --force
-```
-
-- do composer.json přidat do `scripts`
-
-```
-"post-install-cmd": [
-    "php artisan vendor:publish --tag=public --force"
-],
-"post-update-cmd": [
-    "php artisan vendor:publish --tag=public --force"
-]
+.copyDirectory('vendor/components/font-awesome/webfonts', 'public/webfonts')
 ```
 
 ## první nasazení
