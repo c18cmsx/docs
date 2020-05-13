@@ -132,7 +132,7 @@ php artisan vendor:publish --tag=public --force
 ```
 
 ```
-<link href="<?= asset('vendor/components/font-awesome/css/all.min.css') ?>" rel="stylesheet">
+<link href="{{ asset('vendor/components/font-awesome/css/all.min.css') }}" rel="stylesheet">
 ```
 ## první nasazení
 
