@@ -1,8 +1,8 @@
 # Založení nové Laravel aplikace
 
-## Instalace Laravel 7.x
+## Instalace Laravel 8x
 
-minimální verze PHP >= 7.2.5
+minimální verze PHP >= 7.3
 
 ```
 composer create-project --prefer-dist laravel/laravel <appname>
@@ -17,7 +17,7 @@ git commit -m "initial commit"
 Laravel autentikace (doporučuju vždy)
 ```
 
-composer require laravel/ui
+composer require laravel/jetstream
 
 php artisan ui vue --auth
 
