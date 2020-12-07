@@ -8,21 +8,37 @@ minimální verze PHP >= 7.3
 composer create-project --prefer-dist laravel/laravel <appname>
 ```
 
+přejít do nově vytvořeného adresáře
+
 ```
 git init
 git add .
 git commit -m "initial commit"
 ```
 
-Laravel autentikace (doporučuju vždy)
+**Laravel autentikace (doporučuju vždy)**
+
+```
+composer require laravel/jetstream
 ```
 
-composer require laravel/jetstream
+- a po té, jednu z následujících možností
 
-php artisan ui vue --auth
+```
+php artisan jetstream:install livewire
+php artisan jetstream:install livewire --teams
+php artisan jetstream:install inertia
+php artisan jetstream:install inertia --teams
+```
 
+- pak spustit příkaz
+
+```
 npm install && npm run dev
 ```
+
+**config**
+
 .env
 - APP_NAME
 - db connection
@@ -54,39 +70,22 @@ nainstalovat
 composer require barryvdh/laravel-debugbar --dev
 ```
 
-- routes\web.php
-
-přidat
-```
-Route::redirect('/home', '/');
-```
-odstranit
-```
-Route::get('/home', 'HomeController@index')->name('home');
-```
-
-- odstranit soubor ```app\Http\Controllers\HomeController.php```
-
-- odstranit soubor ```resources\views\home.blade.php```
-
-- v souboru ```resources\views\welcome.blade.php```změnit obsah na:
-
-```
-@extends('layouts.app')
-@section('content')
-@endsection
-```
-
 ## vývoj
 
-### přidání less (/webpack.mix.js)
+### přidání less (/webpack.mix.js) - vyměnit celý příkaz mix()
 
 ```
 mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css/assets/app-scss.css')
-    .less('resources/less/app.less', 'public/css/assets/app-less.css')
+    .postCss('resources/css/app.css', 'public/css/assets/app.css', [
+        require('postcss-import'),
+        require('tailwindcss'),
+    ])
+    .webpackConfig(require('./webpack.config'))
+    .sass('resources/css/sass/app.scss', 'public/css/assets/app-scss.css')
+    .less('resources/css/less/app.less', 'public/css/assets/app-less.css')
     .sourceMaps(true, 'source-map')
     .combine([
+        'public/css/assets/app.css',
         'public/css/assets/app-scss.css',
         'public/css/assets/app-less.css'
     ], 'public/css/app.css')
