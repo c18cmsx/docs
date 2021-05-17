@@ -52,22 +52,14 @@ composer require barryvdh/laravel-debugbar --dev
 **Laravel autentikace (doporučuju vždy)**
 
 ```
-composer require laravel/jetstream
+composer require laravel/breeze --dev
 ```
 
-- a po té, jednu z následujících možností
-
 ```
-php artisan jetstream:install livewire
-php artisan jetstream:install livewire --teams
-php artisan jetstream:install inertia
-php artisan jetstream:install inertia --teams
-```
-
-- pak spustit příkaz
-
-```
-npm install && npm run dev
+php artisan breeze:install
+npm install
+npm run dev
+php artisan migrate
 ```
 
 ## vývoj
