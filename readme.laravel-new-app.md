@@ -71,6 +71,7 @@ mix.js('resources/js/app.js', 'public/js')
     .postCss('resources/css/app.css', 'public/css/assets/app.css', [
         require('postcss-import'),
         require('tailwindcss'),
+        require('autoprefixer'),
     ])
     .sass('resources/css/sass/app.scss', 'public/css/assets/app-scss.css')
     .less('resources/css/less/app.less', 'public/css/assets/app-less.css')
