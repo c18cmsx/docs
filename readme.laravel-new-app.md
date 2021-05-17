@@ -72,7 +72,6 @@ mix.js('resources/js/app.js', 'public/js')
         require('postcss-import'),
         require('tailwindcss'),
     ])
-    .webpackConfig(require('./webpack.config'))
     .sass('resources/css/sass/app.scss', 'public/css/assets/app-scss.css')
     .less('resources/css/less/app.less', 'public/css/assets/app-less.css')
     .sourceMaps(true, 'source-map')
